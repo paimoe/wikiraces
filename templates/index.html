@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en" ng-app="wikiraces">
+  <head>
+    <title>Wiki Races</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://en.wikipedia.org/w/load.php?debug=false&lang=en&modules=mediawiki.legacy.commonPrint,shared|skins.vector.styles&only=styles&skin=vector&*">
+    <base href="/" />
+    <style>
+      #wikiContent table.infobox {
+          float:right;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container" ng-controller="MainController">
+      <h1>Wiki Races</h1>
+      <p>Current Race: <strong ng-bind="source.title"></strong> to <strong ng-bind="dest.title"></strong></p>
+      <p>Path you took: <span ng-repeat="p in path"><strong ng-bind="p"></strong> &raquo; </span></p>
+      <wiki-template using="WIKI" id="wikiContent"></wiki-template>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-sanitize.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+    <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+    <script src="/static/wikiraces-ng.js"></script>
+  </body>
+</html>
